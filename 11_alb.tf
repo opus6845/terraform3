@@ -7,5 +7,7 @@ resource "aws_lb" "Hong_alb" {
     tags = {
       "Name" = "Hong-alb"
     }
-  
 }
+output "dns_name" {
+      value = aws_lb.Hong_alb.dns_name
+  }
