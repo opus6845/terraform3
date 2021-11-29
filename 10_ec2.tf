@@ -22,6 +22,7 @@ resource "aws_instance" "Hong_web" {
     availability_zone = "ap-northeast-2a"
     private_ip = "10.0.0.11"
     subnet_id = aws_subnet.Hong_Pub_a.id
+    user_data = file("./user-data.sh")
     tags = {
         "Name" = "Hong-Web"
     }
