@@ -15,8 +15,6 @@ sed -i 's/username_here/admin/g' /var/www/html/wp-config.php
 sed -i 's/password_here/hong6845/g' /var/www/html/wp-config.php
 #sed -i 's/localhost/mydb.cbnbkh3unm6b.ap-northeast-1.rds.amazonaws.com/g' /var/www/html/wp-config.php
 sed -i 's/localhost/mydb.cfu9ywxsvfv5.ap-northeast-2.rds.amazonaws.com/g' /var/www/html/wp-config.php
-cat > /var/www/html/health.html << EOF
-<html><body><h1>HONG WEB SERVER _ health </h1></body></html>
-EOF
+echo "helth check" >> /var/www/html/health.html
 systemctl enable httpd
 systemctl start httpd

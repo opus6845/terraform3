@@ -1,5 +1,8 @@
+
+# Security Groups for Web
+
 resource "aws_security_group" "Hong_sg" {
-    name = "Hong-websg"
+    name = "${var.name}-websg"
     description = "HTTP_ICMP_SQL"
     vpc_id = aws_vpc.hong_vpc.id
 
@@ -9,8 +12,8 @@ resource "aws_security_group" "Hong_sg" {
             from_port = 22
             to_port = 22
             protocol = "tcp"
-            cidr_blocks = ["0.0.0.0/0"]
-            ipv6_cidr_blocks = ["::/0"]
+            cidr_blocks = [var.cidr_route]
+            ipv6_cidr_blocks = [var.cidr_routev6]
             prefix_list_ids = null
             security_groups = null
             self = null
@@ -20,8 +23,8 @@ resource "aws_security_group" "Hong_sg" {
             from_port = 80
             to_port = 80
             protocol = "tcp"
-            cidr_blocks = ["0.0.0.0/0"]
-            ipv6_cidr_blocks = ["::/0"]
+            cidr_blocks = [var.cidr_route]
+            ipv6_cidr_blocks = [var.cidr_routev6]
             prefix_list_ids = null
             security_groups = null
             self = null
@@ -31,8 +34,8 @@ resource "aws_security_group" "Hong_sg" {
             from_port = -1
             to_port = -1
             protocol = "icmp"
-            cidr_blocks = ["0.0.0.0/0"]
-            ipv6_cidr_blocks = ["::/0"]
+            cidr_blocks = [var.cidr_route]
+            ipv6_cidr_blocks = [var.cidr_routev6]
             prefix_list_ids = null
             security_groups = null
             self = null
@@ -42,8 +45,8 @@ resource "aws_security_group" "Hong_sg" {
             from_port = 3306
             to_port = 3306
             protocol = "tcp"
-            cidr_blocks = ["0.0.0.0/0"]
-            ipv6_cidr_blocks = ["::/0"]
+            cidr_blocks = [var.cidr_route]
+            ipv6_cidr_blocks = [var.cidr_routev6]
             prefix_list_ids = null
             security_groups = null
             self = null
@@ -56,8 +59,8 @@ resource "aws_security_group" "Hong_sg" {
             from_port = 0
             to_port = 0
             protocol = -1
-            cidr_blocks = ["0.0.0.0/0"]
-            ipv6_cidr_blocks = ["::/0"]
+            cidr_blocks = [var.cidr_route]
+            ipv6_cidr_blocks = [var.cidr_routev6]
             prefix_list_ids = null
             security_groups = null
             self = null
